@@ -15,6 +15,7 @@
             <h1 class="cnps-titulo">Club Náutico Puerto Sauce</h1>
         </div>
         <nav>
+            <button class="hamburguesa" aria-label="Abrir menú">&#9776;</button>
             <ul class="menunav">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="el-club.html">El Club</a></li>
@@ -30,23 +31,22 @@
     </header>
 
     <main class="galeria">
-         <h2 class="galeria-titulo">Imagenes Aereas</h2>
+        <h2 class="galeria-titulo">Imagenes Aereas</h2>
         <section class="carrusel">
             <button class="carrusel-btn izquierda">&#10094;</button>
-            <div class="galeria-de-imagenes">
+            <div class="carrusel-de-imagenes">
                 <img src="../assets/images/aereas/01.jpg" alt="Imagen toma desde el cielo">
                 <img src="../assets/images/aereas/02.jpg" alt="Imagen toma desde el cielo">
                 <img src="../assets/images/aereas/03.jpg" alt="Imagen toma desde el cielo">
                 <img src="../assets/images/aereas/04.jpg" alt="Imagen toma desde el cielo">
             </div>
             <button class="carrusel-btn derecha">&#10095;</button>
-            
         </section>
 
-        <section class="galeria-bloque">
-            <h2 class="galeria-titulo">Imagenes del puerto y veleros</h2>
+        <h2 class="galeria-titulo">Imagenes del puerto y veleros</h2>
+        <section class="carrusel">
             <button class="carrusel-btn izquierda">&#10094;</button>
-            <div class="galeria-de-imagenes">
+            <div class="carrusel-de-imagenes">
                 <img src="../assets/images/puerto/01.jpg" alt="Imagen de puerto y veleros">
                 <img src="../assets/images/puerto/02.jpg" alt="Imagen de puerto y veleros">
                 <img src="../assets/images/puerto/03.jpg" alt="Imagen de veleros, atardecer">
@@ -55,17 +55,45 @@
                 <img src="../assets/images/puerto/06.jpg" alt="Imagen de puerto vista desde el agua">
                 <img src="../assets/images/puerto/07.jpg" alt="Imagen de puerto vista desde el agua">
                 <img src="../assets/images/puerto/08.jpg" alt="Imagen de puerto vista desde el agua">
-                <img src="../assets/images/puerto/09.jpg" alt="Imagen de puerto, pasto y arboles">
+                <img src="../assets/images/puerto/09.jpg" alt="Imagen de puerto, pasto y árboles">
             </div>
             <button class="carrusel-btn derecha">&#10095;</button>
         </section>
-
-    
     </main>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Carruseles
+        const carruseles = document.querySelectorAll('.carrusel');
+
+        carruseles.forEach(carrusel => {
+            const imagenes = carrusel.querySelector('.carrusel-de-imagenes');
+            const botonIzq = carrusel.querySelector('.carrusel-btn.izquierda');
+            const botonDer = carrusel.querySelector('.carrusel-btn.derecha');
+
+            const anchoImagen = carrusel.offsetWidth;
+
+            botonIzq.addEventListener('click', () => {
+                imagenes.scrollBy({ left: -anchoImagen, behavior: 'smooth' });
+            });
+
+            botonDer.addEventListener('click', () => {
+                imagenes.scrollBy({ left: anchoImagen, behavior: 'smooth' });
+            });
+        });
+
+        // Menú hamburguesa
+        const btnHamburguesa = document.querySelector(".hamburguesa");
+        const menuNav = document.querySelector(".menunav");
+
+        btnHamburguesa.addEventListener("click", () => {
+            menuNav.classList.toggle("mostrar");
+        });
+    });
+    </script>
 
     <footer>
         <p>&copy; 2025 Club Náutico Puerto Sauce - Todos los derechos reservados</p>
     </footer>
 </body>
-
 </html>

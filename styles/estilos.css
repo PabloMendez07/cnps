@@ -6,16 +6,16 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "PT Serif Caption", serif;
+    padding: 0.5rem;
+}
+
+/* HEADER */
 header {
     background-color: #DCDCDC;
     position: relative;
     overflow: hidden;
-    height: auto; /* IMPORTANTE: para que el fondo tenga espacio visible */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.5rem;
     padding: 0.5rem;
 }
 
@@ -25,7 +25,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../assets/logo-repetidos.png'); 
+    background-image: url('../assets/logo-repetidos.png');
     background-size: cover;
     background-position: center;
     opacity: 0.05;
@@ -34,40 +34,62 @@ header {
 
 .header-superior {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 2rem;
+    gap: 1rem;
     position: relative;
     z-index: 1;
+    text-align: center;
+}
+
+#logo-encabezado {
+    width: 8rem;
+    max-width: 100%;
+    height: auto;
 }
 
 .cnps-titulo {
     font-family: "Red Rose", serif;
-    font-size: 3.5rem;
+    font-size: 2rem;
     color: #117DBF;
-    text-align: center;
-}
-#logo-encabezado {
-    width: 15rem;
-    height: auto;
-}
-nav {
-    position: relative;
-    z-index: 1;
 }
 
 /* MENÚ DE NAVEGACIÓN */
+nav {
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
+}
+
+.hamburguesa {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #175073;
+    z-index: 2;
+    margin: 0.5rem;
+}
+
 .menunav {
-    display: flex;
-    gap: 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DCDCDC;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
     list-style: none;
-    font-family: "PT Serif Caption", serif;
     font-size: 1rem;
-    padding: 0;
-    margin: 0;
+    z-index: 1;
+}
+
+.menunav.mostrar {
+    display: flex;
 }
 
 .menunav a {
@@ -81,14 +103,22 @@ nav {
     color: #0a3c5f;
 }
 
+/* Imagen destacada */
+main img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; 
+    max-height: 80vh;
+    margin-bottom: 1rem;
+}
 
+/* FOOTER */
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #117DBF;
     width: 100%;
-    height: 3rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 footer p {
@@ -96,17 +126,7 @@ footer p {
     font-size: 1rem;
 }
 
-/*Imagen de pagina de inicio*/
-
-main img {
-    width: 100%;
-    height: auto;
-    display: block;
-
-}
-
-/*Contacto*/
-
+/* CONTACTO */
 .titulo-contacto {
     padding: 2rem;
     font-family: 'Times New Roman', Times, serif;
@@ -120,7 +140,7 @@ main img {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, serif;
     font-size: 1.5rem;
     color: #117DBF;
     list-style: none;
@@ -132,18 +152,14 @@ main img {
     display: grid;
     grid-template-columns: 2rem auto;
     align-items: center;
-    justify-content: start;
-    text-align: left;
     gap: 1rem;
 }
 
-/* Íconos generales */
 .medios-de-contactos i {
     font-size: 1.5rem;
     text-align: center;
 }
 
-/* Colores personalizados */
 .whatsapp i { color: #25D366; }
 .mail i { color: #117DBF; }
 .instagram i { color: #E1306C; }
@@ -153,58 +169,36 @@ main img {
 .medios-de-contactos a {
     text-decoration: none;
     color: #117DBF;
-    transition: color 0.3s ease;
 }
 
 .medios-de-contactos a:hover {
     text-decoration: underline;
-    color: #117DBF;
 }
 
-.whatsapp a {
-    color: #117DBF;
-}
-
-.ubicacion a {
-    color: #117DBF;
-}
-
-
-/*GALERIA*/
-
-.galeria-titulo{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #175073;
-    background-color: #DCDCDC;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    position: relative;
-    border-radius: 0.5rem;
-    }
-
-.galeria{
-    padding: 3rem;
+/* GALERÍA */
+.galeria {
+    padding: 3rem 1rem;
     background-color: #F5F5F5;
 }
 
-.galeria-titulo::after{
+.galeria-titulo {
+    font-family: Georgia, serif;
+    color: #175073;
+    background-color: #DCDCDC;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem auto;
+    max-width: 90%;
+    border-radius: 0.5rem;
+}
+
+.galeria-titulo::after {
     content: '';
     display: block;
     width: 60px;
     height: 3px;
     background-color: #117DBF;
     margin: 0.5rem auto 1rem;
-}
-
-.galeria-de-imagenes {
-    display: flex;
-    overflow-x: auto;
-    gap: 1rem;
-    padding: 1rem 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en móviles */
 }
 
 .galeria-de-imagenes img {
@@ -216,8 +210,188 @@ main img {
     transition: transform 0.3s ease;
 }
 
-
 .galeria-de-imagenes img:hover {
     transform: scale(1.05);
+}
+
+/* CARRUSEL */
+.carrusel {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.carrusel-de-imagenes {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 1rem;
+}
+
+.carrusel-de-imagenes img {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    scroll-snap-align: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrusel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(23, 80, 115, 0.8);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 0.3rem;
+}
+
+.carrusel-btn.izquierda {
+    left: 10px;
+}
+
+.carrusel-btn.derecha {
+    right: 10px;
+}
+
+.carrusel-btn:hover {
+    background-color: rgba(17, 125, 191, 0.9);
+}
+
+/* MEDIA QUERIES (MEJORAS PARA PANTALLAS GRANDES) */
+@media (min-width: 768px) {
+    .header-superior {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #logo-encabezado {
+        width: 15rem;
+    }
+
+    .cnps-titulo {
+        font-size: 3rem;
+    }
+
+    .menunav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+
+    .galeria-titulo {
+        font-size: 2rem;
+    }
+}
+
+/* NUEVO menú hamburguesa funcional sin JS */
+.menu-toggle {
+    display: none;
+}
+
+.hamburguesa {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #175073;
+    margin: 0.5rem;
+}
+
+.menunav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #DCDCDC;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+    list-style: none;
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.menu-toggle:checked + .hamburguesa + .menunav {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .menunav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background-color: transparent;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    .hamburguesa {
+        display: none;
+    }
+}
+/* Menú de navegación principal */
+.menunav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #002244;
+}
+
+.menunav li {
+  margin: 0.5rem;
+}
+
+.menunav li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.hamburguesa {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  background-color: #002244;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .menunav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-toggle:checked + .menunav {
+    display: flex;
+  }
+
+  .hamburguesa {
+    display: block;
+    text-align: right;
+  }
 }
 
