@@ -56,6 +56,7 @@ header {
 
 /* MENÚ DE NAVEGACIÓN */
 nav {
+    
     position: relative;
     z-index: 1;
     margin-top: 1rem;
@@ -86,10 +87,6 @@ nav {
     list-style: none;
     font-size: 1rem;
     z-index: 1;
-}
-
-.menunav.mostrar {
-    display: flex;
 }
 
 .menunav a {
@@ -126,54 +123,72 @@ footer p {
     font-size: 1rem;
 }
 
-/* CONTACTO */
-.titulo-contacto {
-    padding: 2rem;
-    font-family: 'Times New Roman', Times, serif;
-    color: #0a3c5f;
-    font-size: 2rem;
-    text-align: center;
+/* CONTACTO CNPS */
+.contacto-cnps {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  text-align: center;
 }
 
-.medios-de-contactos {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    font-family: Georgia, serif;
-    font-size: 1.5rem;
-    color: #117DBF;
-    list-style: none;
-    max-width: 400px;
-    margin: 0 auto;
+.contacto-cnps h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005999; /* azul institucional CNPS */
 }
 
-.medios-de-contactos li {
-    display: grid;
-    grid-template-columns: 2rem auto;
-    align-items: center;
-    gap: 1rem;
+.contacto-cnps p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
-.medios-de-contactos i {
-    font-size: 1.5rem;
-    text-align: center;
+.medios-de-contacto {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
+/* Ítems con íconos */
+.medios-de-contacto li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Tamaño de íconos */
+.medios-de-contacto i {
+  font-size: 1.2rem;
+}
+
+/* Colores específicos por plataforma */
 .whatsapp i { color: #25D366; }
 .mail i { color: #117DBF; }
 .instagram i { color: #E1306C; }
 .facebook i { color: #4267B2; }
 .ubicacion i { color: #D94F4F; }
 
-.medios-de-contactos a {
-    text-decoration: none;
-    color: #117DBF;
+/* Enlaces */
+.medios-de-contacto a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
 }
 
-.medios-de-contactos a:hover {
-    text-decoration: underline;
+.medios-de-contacto a:hover {
+  color: #007acc; /* azul claro al pasar el mouse */
 }
+/* ======= Página: contacto.html ======= */
+
 
 /* GALERÍA */
 .galeria {
@@ -283,6 +298,7 @@ footer p {
         display: flex !important;
         position: static;
         flex-direction: row;
+        justify-content: center;
         background-color: transparent;
         padding: 0;
         gap: 1rem;
@@ -297,101 +313,246 @@ footer p {
     }
 }
 
-/* NUEVO menú hamburguesa funcional sin JS */
+/*el club*/
+.el-club {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.el-club h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005999;
+  text-align: center;
+}
+
+.el-club p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.el-club ul {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.el-club li {
+  margin-bottom: 0.5rem;
+}
+.el-club {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.el-club h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005999;
+  text-align: center;
+}
+
+.el-club p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Ocultamos el menú por defecto en móviles */
 .menu-toggle {
-    display: none;
-}
-
-.hamburguesa {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #175073;
-    margin: 0.5rem;
-}
-
-.menunav {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #DCDCDC;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-    gap: 1rem;
-    list-style: none;
-    font-size: 1rem;
-    z-index: 1;
-}
-
-.menu-toggle:checked + .hamburguesa + .menunav {
-    display: flex;
-}
-
-@media (min-width: 768px) {
-    .menunav {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        background-color: transparent;
-        padding: 0;
-        gap: 1rem;
-    }
-
-    .hamburguesa {
-        display: none;
-    }
-}
-/* Menú de navegación principal */
-.menunav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #002244;
-}
-
-.menunav li {
-  margin: 0.5rem;
-}
-
-.menunav li a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  display: block;
+  display: none;
 }
 
 .hamburguesa {
   display: none;
   font-size: 2rem;
-  color: white;
-  background-color: #002244;
-  padding: 0.5rem 1rem;
   cursor: pointer;
+  color: white;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .menunav {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu-toggle:checked + .menunav {
-    display: flex;
-  }
-
+@media (max-width: 767px) {
   .hamburguesa {
     display: block;
-    text-align: right;
+    color: white;
   }
 }
+.menu-toggle:checked + .hamburguesa + .menunav a {
+  color: white; /* o #DCDCDC si querés más suave */
+}
 
+
+/* Escondemos el menú si el checkbox no está tildado */
+.menu-toggle:not(:checked) + .hamburguesa + .menunav {
+  display: none;
+}
+
+/* Mostramos el menú si el checkbox está tildado */
+.menu-toggle:checked + .hamburguesa + .menunav {
+  display: flex;
+  flex-direction: column;
+  background-color: #005792;
+  padding: 1rem;
+  gap: 1rem;
+}
+/*Escuela de vela*/
+.escuela-nautica {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.escuela-nautica h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005999;
+  text-align: center;
+}
+
+.escuela-nautica p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.escuela-nautica ul {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.escuela-nautica li {
+  margin-bottom: 0.5rem;
+}
+/* SERVICIOS CNPS */
+.servicios-cnps {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+}
+
+.servicios-cnps h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #005999;
+  margin-bottom: 2rem;
+}
+
+.servicios-cnps .servicio {
+  margin-bottom: 2rem;
+}
+
+.servicios-cnps .servicio h2 {
+  font-size: 1.5rem;
+  color: #005999;
+  margin-bottom: 0.5rem;
+}
+
+.servicios-cnps .servicio p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+/*Estilo a calendario*/
+.calendario {
+  background-color: #f0f8ff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.calendario h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #004080;
+}
+
+.calendario p {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.calendario-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.calendario-wrapper iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+}
+
+.whatsapp-reserva a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #25d366;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.whatsapp-reserva a i {
+  margin-right: 8px;
+}
+/* ======= pagina: Servicios.html ======= */
+
+/*Actividades*/
+.actividades {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #0d1b2a;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.actividades h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #005999;
+  text-align: center;
+}
+
+.actividades p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.actividades ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.actividades li {
+  margin-bottom: 0.5rem;
+}
+/* ======= pagina: Actividades.html ======= */
