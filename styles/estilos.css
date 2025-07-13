@@ -187,7 +187,7 @@ footer p {
 .medios-de-contacto a:hover {
   color: #007acc; /* azul claro al pasar el mouse */
 }
-/* ======= Página: contacto.html ======= */
+/*  --Página: contacto.html -- */
 
 
 /* GALERÍA */
@@ -388,7 +388,7 @@ footer p {
   }
 }
 .menu-toggle:checked + .hamburguesa + .menunav a {
-  color: white; /* o #DCDCDC si querés más suave */
+  color: white;
 }
 
 
@@ -519,7 +519,7 @@ footer p {
 .whatsapp-reserva a i {
   margin-right: 8px;
 }
-/* ======= pagina: Servicios.html ======= */
+/* -- pagina: Servicios.html -- */
 
 /*Actividades*/
 .actividades {
@@ -555,4 +555,4 @@ footer p {
 .actividades li {
   margin-bottom: 0.5rem;
 }
-/* ======= pagina: Actividades.html ======= */
+/* -- pagina: Actividades.html -- */
