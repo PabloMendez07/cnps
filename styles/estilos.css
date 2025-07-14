@@ -1,129 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption:ital@0;1&family=Red+Rose:wght@300..700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "PT Serif Caption", serif;
-    padding: 0.5rem;
+  font-family: "PT Serif Caption", serif;
+  padding: 0.5rem;
 }
 
-/* HEADER */
+/* === HEADER === */
 header {
-    background-color: #DCDCDC;
-    position: relative;
-    overflow: hidden;
-    padding: 0.5rem;
+  background-color: #DCDCDC;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem;
 }
 
 .fondo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/logo-repetidos.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.05;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/logo-repetidos.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
 }
 
 .header-superior {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-    z-index: 1;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 #logo-encabezado {
-    width: 8rem;
-    max-width: 100%;
-    height: auto;
+  width: 8rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .cnps-titulo {
-    font-family: "Red Rose", serif;
-    font-size: 2rem;
-    color: #117DBF;
+  font-family: "Red Rose", serif;
+  font-size: 2rem;
+  color: #117DBF;
 }
 
-/* MENÚ DE NAVEGACIÓN */
+/* === MENÚ HAMBURGUESA FUNCIONAL === */
 nav {
-    
-    position: relative;
-    z-index: 1;
-    margin-top: 1rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+.menu-toggle {
+  display: none;
 }
 
 .hamburguesa {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #175073;
-    z-index: 2;
-    margin: 0.5rem;
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #175073;
+  padding: 0.5rem 1rem;
 }
 
 .menunav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background-color: #005792;
+  padding: 1rem;
+  list-style: none;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.menu-toggle:checked + .hamburguesa + .menunav {
+  display: flex;
+}
+
+.menunav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.menunav li a:hover {
+  color: #cce8ff;
+}
+
+@media (min-width: 768px) {
+  .hamburguesa {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    background-color: #DCDCDC;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 1rem 0;
-    gap: 1rem;
-    list-style: none;
-    font-size: 1rem;
-    z-index: 1;
-}
+  }
 
-.menunav a {
-    text-decoration: none;
+  .menunav {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    background-color: transparent;
+    padding: 0;
+    gap: 1.5rem;
+  }
+
+  .menunav li a {
     color: #175073;
-    transition: color 0.3s ease;
-}
+  }
 
-.menunav a:hover {
-    text-decoration: underline;
+  .menunav li a:hover {
     color: #0a3c5f;
+  }
+
+  .header-superior {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #logo-encabezado {
+    width: 15rem;
+  }
+
+  .cnps-titulo {
+    font-size: 3rem;
+  }
+
+  .galeria-titulo {
+    font-size: 2rem;
+  }
 }
 
-/* Imagen destacada */
+/* === IMAGEN DESTACADA === */
 main img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover; 
-    max-height: 80vh;
-    margin-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 80vh;
+  margin-bottom: 1rem;
 }
 
-/* FOOTER */
+/* === FOOTER === */
 footer {
-    background-color: #117DBF;
-    width: 100%;
-    padding: 1rem;
-    text-align: center;
+  background-color: #117DBF;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
 }
 
 footer p {
-    color: #DCDCDC;
-    font-size: 1rem;
+  color: #DCDCDC;
+  font-size: 1rem;
 }
 
-/* CONTACTO CNPS */
+/* === CONTACTO CNPS === */
 .contacto-cnps {
   max-width: 800px;
   margin: 2rem auto;
@@ -139,7 +178,7 @@ footer p {
 .contacto-cnps h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #005999; /* azul institucional CNPS */
+  color: #005999;
 }
 
 .contacto-cnps p {
@@ -157,7 +196,6 @@ footer p {
   gap: 1rem;
 }
 
-/* Ítems con íconos */
 .medios-de-contacto li {
   display: flex;
   align-items: center;
@@ -165,19 +203,16 @@ footer p {
   font-size: 1rem;
 }
 
-/* Tamaño de íconos */
 .medios-de-contacto i {
   font-size: 1.2rem;
 }
 
-/* Colores específicos por plataforma */
 .whatsapp i { color: #25D366; }
 .mail i { color: #117DBF; }
 .instagram i { color: #E1306C; }
 .facebook i { color: #4267B2; }
 .ubicacion i { color: #D94F4F; }
 
-/* Enlaces */
 .medios-de-contacto a {
   text-decoration: none;
   color: #333;
@@ -185,261 +220,102 @@ footer p {
 }
 
 .medios-de-contacto a:hover {
-  color: #007acc; /* azul claro al pasar el mouse */
+  color: #007acc;
 }
-/*  --Página: contacto.html -- */
 
-
-/* GALERÍA */
+/* === GALERÍA === */
 .galeria {
-    padding: 3rem 1rem;
-    background-color: #F5F5F5;
+  padding: 3rem 1rem;
+  background-color: #F5F5F5;
 }
 
 .galeria-titulo {
-    font-family: Georgia, serif;
-    color: #175073;
-    background-color: #DCDCDC;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 1rem auto;
-    max-width: 90%;
-    border-radius: 0.5rem;
+  font-family: Georgia, serif;
+  color: #175073;
+  background-color: #DCDCDC;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 90%;
+  border-radius: 0.5rem;
 }
 
 .galeria-titulo::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #117DBF;
-    margin: 0.5rem auto 1rem;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #117DBF;
+  margin: 0.5rem auto 1rem;
 }
 
 .galeria-de-imagenes img {
-    flex: 0 0 auto;
-    width: 300px;
-    scroll-snap-align: center;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .galeria-de-imagenes img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* CARRUSEL */
+/* === CARRUSEL === */
 .carrusel {
-    position: relative;
-    overflow: hidden;
-    width: 90%;
-    margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .carrusel-de-imagenes {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 1rem;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
 }
 
 .carrusel-de-imagenes img {
-    flex: 0 0 100%;
-    width: 100%;
-    max-width: 100%;
-    scroll-snap-align: center;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carrusel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(23, 80, 115, 0.8);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 0.25rem 0.75rem;
-    cursor: pointer;
-    z-index: 1;
-    border-radius: 0.3rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(23, 80, 115, 0.8);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 0.3rem;
 }
 
 .carrusel-btn.izquierda {
-    left: 10px;
+  left: 10px;
 }
 
 .carrusel-btn.derecha {
-    right: 10px;
+  right: 10px;
 }
 
 .carrusel-btn:hover {
-    background-color: rgba(17, 125, 191, 0.9);
+  background-color: rgba(17, 125, 191, 0.9);
 }
 
-/* MEDIA QUERIES (MEJORAS PARA PANTALLAS GRANDES) */
-@media (min-width: 768px) {
-    .header-superior {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    #logo-encabezado {
-        width: 15rem;
-    }
-
-    .cnps-titulo {
-        font-size: 3rem;
-    }
-
-    .menunav {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        background-color: transparent;
-        padding: 0;
-        gap: 1rem;
-    }
-
-    .hamburguesa {
-        display: none;
-    }
-
-    .galeria-titulo {
-        font-size: 2rem;
-    }
-}
-
-/*el club*/
-.el-club {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-}
-
-.el-club h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #005999;
-  text-align: center;
-}
-
-.el-club p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.el-club ul {
-  list-style: disc inside;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-}
-
-.el-club li {
-  margin-bottom: 0.5rem;
-}
-.el-club {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-}
-
-.el-club h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #005999;
-  text-align: center;
-}
-
-.el-club p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-/* Ocultamos el menú por defecto en móviles */
-.menu-toggle {
-  display: none;
-}
-
-.hamburguesa {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
-}
-
-@media (max-width: 767px) {
-  .hamburguesa {
-    display: block;
-    color: white;
-  }
-}
-.menu-toggle:checked + .hamburguesa + .menunav a {
-  color: white;
-}
-
-
-/* Escondemos el menú si el checkbox no está tildado */
-.menu-toggle:not(:checked) + .hamburguesa + .menunav {
-  display: none;
-}
-
-/* Mostramos el menú si el checkbox está tildado */
-.menu-toggle:checked + .hamburguesa + .menunav {
-  display: flex;
-  flex-direction: column;
-  background-color: #005792;
-  padding: 1rem;
-  gap: 1rem;
-}
-/*Escuela de vela*/
-.escuela-nautica {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', sans-serif;
-  color: #333;
-}
-
-.escuela-nautica h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #005999;
-  text-align: center;
-}
-
-.escuela-nautica p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.escuela-nautica ul {
-  list-style: disc inside;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-}
-
-.escuela-nautica li {
-  margin-bottom: 0.5rem;
-}
-/* SERVICIOS CNPS */
-.servicios-cnps {
+/* === SECCIONES INTERNAS === */
+.el-club,
+.escuela-nautica,
+.servicios-cnps,
+.actividades {
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
@@ -450,28 +326,46 @@ footer p {
   color: #333;
 }
 
-.servicios-cnps h1 {
-  text-align: center;
-  font-size: 2.2rem;
+.el-club h1,
+.escuela-nautica h1,
+.servicios-cnps h1,
+.actividades h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
   color: #005999;
-  margin-bottom: 2rem;
-}
-
-.servicios-cnps .servicio {
-  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .servicios-cnps .servicio h2 {
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: #005999;
+}
+
+.servicios-cnps .servicio p,
+.el-club p,
+.escuela-nautica p,
+.actividades p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.el-club ul,
+.escuela-nautica ul,
+.actividades ul {
+  list-style: disc inside;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.el-club li,
+.escuela-nautica li,
+.actividades li {
   margin-bottom: 0.5rem;
 }
 
-.servicios-cnps .servicio p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-/*Estilo a calendario*/
+/* === CALENDARIO === */
 .calendario {
   background-color: #f0f8ff;
   padding: 2rem;
@@ -519,40 +413,3 @@ footer p {
 .whatsapp-reserva a i {
   margin-right: 8px;
 }
-/* -- pagina: Servicios.html -- */
-
-/*Actividades*/
-.actividades {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #0d1b2a;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.actividades h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #005999;
-  text-align: center;
-}
-
-.actividades p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.actividades ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.actividades li {
-  margin-bottom: 0.5rem;
-}
-/* -- pagina: Actividades.html -- */
