@@ -62,39 +62,30 @@
         </section>
     </main>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // Carruseles
-        const carruseles = document.querySelectorAll('.carrusel');
-
-        carruseles.forEach(carrusel => {
-            const imagenes = carrusel.querySelector('.carrusel-de-imagenes');
-            const botonIzq = carrusel.querySelector('.carrusel-btn.izquierda');
-            const botonDer = carrusel.querySelector('.carrusel-btn.derecha');
-
-            const anchoImagen = carrusel.offsetWidth;
-
-            botonIzq.addEventListener('click', () => {
-                imagenes.scrollBy({ left: -anchoImagen, behavior: 'smooth' });
-            });
-
-            botonDer.addEventListener('click', () => {
-                imagenes.scrollBy({ left: anchoImagen, behavior: 'smooth' });
-            });
-        });
-
-        // Menú hamburguesa
-        const btnHamburguesa = document.querySelector(".hamburguesa");
-        const menuNav = document.querySelector(".menunav");
-
-        btnHamburguesa.addEventListener("click", () => {
-            menuNav.classList.toggle("mostrar");
-        });
-    });
-    </script>
-
     <footer>
         <p>&copy; 2025 Club Náutico Puerto Sauce - Todos los derechos reservados</p>
     </footer>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const carrusel = document.querySelector(".carrusel-de-imagenes");
+    const btnIzq = document.querySelector(".carrusel-btn.izquierda");
+    const btnDer = document.querySelector(".carrusel-btn.derecha");
+
+    btnIzq.addEventListener("click", () => {
+      carrusel.scrollBy({
+        left: -300,
+        behavior: "smooth"
+      });
+    });
+
+    btnDer.addEventListener("click", () => {
+      carrusel.scrollBy({
+        left: 300,
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
