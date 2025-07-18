@@ -72,26 +72,33 @@
         </div>
     </footer>
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const carrusel = document.querySelector(".carrusel-de-imagenes");
-    const btnIzq = document.querySelector(".carrusel-btn.izquierda");
-    const btnDer = document.querySelector(".carrusel-btn.derecha");
+document.addEventListener("DOMContentLoaded", function () {
+  const carruseles = document.querySelectorAll(".carrusel");
+
+  carruseles.forEach(carrusel => {
+    const container = carrusel.querySelector(".carrusel-de-imagenes");
+    const btnIzq = carrusel.querySelector(".carrusel-btn.izquierda");
+    const btnDer = carrusel.querySelector(".carrusel-btn.derecha");
+
+    const scrollByAmount = () => container.offsetWidth;
 
     btnIzq.addEventListener("click", () => {
-      carrusel.scrollBy({
-        left: -300,
+      container.scrollBy({
+        left: -scrollByAmount(),
         behavior: "smooth"
       });
     });
 
     btnDer.addEventListener("click", () => {
-      carrusel.scrollBy({
-        left: 300,
+      container.scrollBy({
+        left: scrollByAmount(),
         behavior: "smooth"
       });
     });
   });
+});
 </script>
+
 
 </body>
 </html>
